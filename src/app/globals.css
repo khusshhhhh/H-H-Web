@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/*
+  Design tokens for Hills & Harbour.
+  Decorative palette tokens (sandstone / eucalyptus / concrete / terracotta base)
+  are for backgrounds, borders and fills ONLY. For body text on light
+  backgrounds always use charcoal or the darkened `-text` variants below —
+  the raw decorative tones do not meet AA contrast at text weight.
+*/
+@theme {
+  --color-cream: #f3f0e9;
+  --color-charcoal: #171717;
+  --color-sandstone: #c9b9a3;
+  --color-eucalyptus: #68766b;
+  --color-terracotta: #a8583c;
+  --color-concrete: #a9a7a1;
+
+  --color-eucalyptus-text: #3e4740;
+  --color-terracotta-text: #7a3e28;
+  --color-sandstone-text: #5b4e3d;
+
+  --font-display: var(--font-display), "Fraunces", serif;
+  --font-sans: var(--font-sans), "Inter", system-ui, sans-serif;
+
+  --text-fluid-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.875rem);
+  --text-fluid-sm: clamp(0.875rem, 0.84rem + 0.2vw, 1rem);
+  --text-fluid-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-fluid-lg: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  --text-fluid-xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+  --text-fluid-2xl: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+  --text-fluid-2xl--line-height: 1.05;
+  --text-fluid-3xl: clamp(2.75rem, 1.8rem + 4.5vw, 5.5rem);
+  --text-fluid-3xl--line-height: 1;
+  --text-fluid-hero: clamp(3.25rem, 1.6rem + 8vw, 9rem);
+  --text-fluid-hero--line-height: 0.94;
+
+  --tracking-widest2: 0.28em;
+
+  --ease-editorial: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@layer base {
+  * {
+    @apply border-concrete/30;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-cream text-charcoal font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-terracotta text-cream;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .grid-editorial {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+/* Hard CSS-level reduced-motion backstop, in addition to the JS hook that
+   individual GSAP/Framer/R3F entry points check before running. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html,
+body {
+  overflow-x: clip;
+}
