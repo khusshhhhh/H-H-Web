@@ -69,6 +69,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
+
+        {/* Server-rendered loading overlay (removed by client when finished) */}
+        <div
+          id="hh-loading-overlay"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-charcoal"
+          aria-hidden="true"
+        >
+          <div className="flex flex-col items-center justify-center">
+            <button
+              id="hh-skip"
+              type="button"
+              className="absolute right-6 top-6 text-fluid-xs uppercase tracking-widest2 text-cream/50"
+            >
+              Skip intro
+            </button>
+            <img src="/images/logo/whitelogo.png" alt="Hills & Harbour" className="h-24 w-auto" />
+            <span id="hh-loading-progress" className="mt-6 font-display text-fluid-sm tabular-nums text-cream/70">0%</span>
+          </div>
+        </div>
         <LenisProvider>
           <Header />
           <main id="main-content" className="flex-1">

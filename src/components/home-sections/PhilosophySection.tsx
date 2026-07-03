@@ -7,7 +7,6 @@ import { useIsMobile } from "@/hooks/useMediaQuery";
 import { Label } from "@/components/ui/Label";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { PhilosophyMassingDiagram } from "@/components/home-sections/PhilosophyMassingDiagram";
-import { MassingSceneLoader } from "@/components/three/MassingSceneLoader";
 import { cn } from "@/lib/utils";
 
 const STAGES = [
@@ -105,7 +104,9 @@ export function PhilosophySection() {
         </div>
 
         <div className="mt-16 flex items-center justify-center lg:mt-0 lg:w-1/2">
-          <MassingSceneLoader stage={activeStage} className="aspect-square w-full max-w-md" />
+          <div className="aspect-square w-full max-w-md">
+            <PhilosophyMassingDiagram stage={activeStage} />
+          </div>
         </div>
       </div>
     </section>

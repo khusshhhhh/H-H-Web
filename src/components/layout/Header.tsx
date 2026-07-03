@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { Menu } from "lucide-react";
@@ -34,15 +35,15 @@ export function Header() {
         )}
       >
         <div className="flex items-center justify-between px-6 py-5 lg:px-12">
-          <Link
-            href="/"
-            className={cn(
-              "font-display text-fluid-lg tracking-tight transition-colors duration-500",
-              solid ? "text-charcoal" : "text-cream",
-            )}
-            aria-label={`${siteConfig.name} — home`}
-          >
-            Hills <span className="text-terracotta">&amp;</span> Harbour
+          <Link href="/" aria-label={`${siteConfig.name} — home`}>
+            <Image
+              src={solid ? "/images/logo/blacklogo.png" : "/images/logo/whitelogo.png"}
+              alt={`${siteConfig.name} — home`}
+              width={400}
+              height={96}
+              className={cn("h-12 w-auto transition-all duration-500", solid ? "" : "")}
+              priority
+            />
           </Link>
 
           <div className="flex items-center gap-4">

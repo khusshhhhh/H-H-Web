@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe";
 import { useLenis } from "@/components/motion/LenisProvider";
-import { MonogramDrawing } from "@/components/home-sections/MonogramDrawing";
 
 const STORAGE_KEY = "hh-intro-seen";
 const DURATION_MS = 1600;
@@ -17,11 +15,8 @@ export function LoadingSequence() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Deliberately deferred to an effect rather than a lazy useState
-    // initializer: sessionStorage is only readable client-side, and
-    // deciding visibility during the render pass would make the client's
-    // hydration render diverge from the server-rendered markup (a real
-    // hydration mismatch), not just an unnecessary render.
+    // Control the server-rendered overlay via DOM to ensure it appears
+    // before the main site content paints and to avoid hydration flashes.
     let alreadySeen = false;
     try {
       alreadySeen = sessionStorage.getItem(STORAGE_KEY) === "1";
@@ -29,8 +24,18 @@ export function LoadingSequence() {
       alreadySeen = false;
     }
 
+    const overlay = document.getElementById("hh-loading-overlay");
+    const progressEl = document.getElementById("hh-loading-progress");
+    const skipBtn = document.getElementById("hh-skip");
+
+    function removeOverlay() {
+      if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    }
+
     if (alreadySeen || reduced) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+      // Hide overlay immediately and let scrolling start
+      removeOverlay();
+      start();
       setVisible(false);
       setReady(true);
       return;
@@ -40,11 +45,22 @@ export function LoadingSequence() {
     setReady(true);
     stop();
     document.body.style.overflow = "hidden";
+
+    // Attach skip handler
+    const onSkip = () => finish(true);
+    skipBtn?.addEventListener("click", onSkip);
+
+    return () => {
+      skipBtn?.removeEventListener("click", onSkip);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reduced]);
 
   useEffect(() => {
     if (!visible) return;
+
+    const overlay = document.getElementById("hh-loading-overlay");
+    const progressEl = document.getElementById("hh-loading-progress");
 
     const startTime = Date.now();
     let frame: number;
@@ -53,10 +69,11 @@ export function LoadingSequence() {
       const elapsed = Date.now() - startTime;
       const pct = Math.min(100, Math.round((elapsed / DURATION_MS) * 100));
       setProgress(pct);
+      if (progressEl) progressEl.textContent = `${pct}%`;
       if (pct < 100) {
         frame = requestAnimationFrame(tick);
       } else {
-        window.setTimeout(finish, 350);
+        window.setTimeout(() => finish(false), 350);
       }
     }
 
@@ -65,41 +82,29 @@ export function LoadingSequence() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
-  function finish() {
+  function finish(skip = false) {
     try {
       sessionStorage.setItem(STORAGE_KEY, "1");
     } catch {
       // ignore storage errors (private browsing etc.)
     }
+
+    const overlay = document.getElementById("hh-loading-overlay");
+    if (overlay) {
+      // simple fade via inline transition then remove
+      overlay.style.transition = "opacity 0.45s ease";
+      overlay.style.opacity = "0";
+      window.setTimeout(() => {
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      }, 500);
+    }
+
     document.body.style.overflow = "";
     start();
     setVisible(false);
   }
 
-  if (!ready) return null;
-
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-charcoal"
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
-          role="status"
-          aria-live="polite"
-          aria-label={`Loading Hills & Harbour, ${progress} percent`}
-        >
-          <button
-            type="button"
-            onClick={finish}
-            className="absolute right-6 top-6 text-fluid-xs uppercase tracking-widest2 text-cream/50 transition-colors hover:text-cream"
-          >
-            Skip intro
-          </button>
-          <MonogramDrawing progress={progress} />
-          <span className="mt-6 font-display text-fluid-sm tabular-nums text-cream/70">{progress}%</span>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
+  // This component only drives the server-rendered overlay via DOM.
+  // It doesn't render UI itself to avoid duplication and hydration mismatches.
+  return null;
 }

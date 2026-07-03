@@ -9,7 +9,7 @@ import { SplitText } from "@/components/motion/SplitText";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe";
 import { usePointerFine } from "@/hooks/useMediaQuery";
-import { SceneLoader } from "@/components/three/SceneLoader";
+// 3D scene removed; static imagery used instead
 
 export function Hero() {
   const reduced = useReducedMotionSafe();
@@ -86,12 +86,12 @@ export function Hero() {
         <ScrollIndicator tone="dark" />
       </div>
 
-      <div className="absolute right-6 top-28 z-10 hidden overflow-hidden rounded-sm border border-cream/20 bg-charcoal/40 backdrop-blur-sm sm:block lg:right-12">
+      {/* <div className="absolute right-6 top-28 z-10 hidden overflow-hidden rounded-sm border border-cream/20 bg-charcoal/40 backdrop-blur-sm sm:block lg:right-12">
         <SceneLoader variant="hero" className="relative h-40 w-40 lg:h-56 lg:w-56" />
         <p className="border-t border-cream/15 px-3 py-2 text-center text-fluid-xs uppercase tracking-widest2 text-cream/60">
           Explore in 3D
         </p>
-      </div>
+      </div> */}
     </section>
   );
 }
