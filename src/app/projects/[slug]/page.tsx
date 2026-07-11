@@ -16,6 +16,7 @@ import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { BeforeAfterSlider } from "@/components/projects/BeforeAfterSlider";
 import { FloorPlanViewer } from "@/components/projects/FloorPlanViewer";
 import { RelatedProjects } from "@/components/projects/RelatedProjects";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { MaskReveal } from "@/components/motion/MaskReveal";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 
@@ -47,16 +48,15 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
   const testimonial = project.testimonialId ? getTestimonialById(project.testimonialId) : undefined;
   const related = getRelatedProjects(project);
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Projects", path: "/projects" },
+    { name: project.name, path: `/projects/${project.slug}` },
+  ];
 
   return (
     <>
-      <JsonLd
-        data={buildBreadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Projects", path: "/projects" },
-          { name: project.name, path: `/projects/${project.slug}` },
-        ])}
-      />
+      <JsonLd data={buildBreadcrumbJsonLd(breadcrumbItems)} />
 
       {/* Full-screen intro */}
       <section className="relative flex h-[100svh] min-h-[560px] items-end overflow-hidden bg-charcoal text-cream">
@@ -70,7 +70,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-charcoal/10" />
         <Container className="relative pb-16 pt-32 lg:pb-24">
-          <Label className="text-sandstone">
+          <Breadcrumbs items={breadcrumbItems} tone="dark" />
+          <Label className="mt-6 block text-sandstone">
             {project.suburb} &middot; {project.year}
           </Label>
           <h1 className="mt-5 max-w-3xl font-display text-fluid-3xl leading-[0.98] text-balance">{project.name}</h1>

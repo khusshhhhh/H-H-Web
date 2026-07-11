@@ -46,6 +46,24 @@ export const testimonials: Testimonial[] = [
       "We'd been quoted a house-and-land package elsewhere that didn't account for our block's bushfire rating at all. Hills & Harbour picked it up in the first site visit and the number we budgeted for was the number we actually paid.",
     isPlaceholder: true,
   },
+  {
+    id: "t-henley-general",
+    clientName: "Rachel N.",
+    suburb: "Henley Beach",
+    projectSlug: "henley-beach-courtyard-house",
+    quote:
+      "What stood out wasn't any single decision — it was that we always knew what stage we were at and what happened next. No project is stress-free, but this one never felt chaotic.",
+    isPlaceholder: true,
+  },
+  {
+    id: "t-aftercare-general",
+    clientName: "Tom & Sarah B.",
+    suburb: "Norwood",
+    projectSlug: "osmond-terrace-rebuild",
+    quote:
+      "The six-month check-in caught a settling crack we hadn't even noticed and had it resolved under warranty before we had to ask. It's the kind of thing you don't think to value until it happens to you.",
+    isPlaceholder: true,
+  },
 ];
 
 export function getTestimonialById(id: string) {

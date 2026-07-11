@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { ProjectCard } from "@/components/projects/ProjectCard";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 
 interface ServicePageProps {
@@ -42,22 +43,22 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const relatedProjects = service.relatedProjectSlugs
     .map((s) => getProjectBySlug(s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: service.name, path: `/services/${service.slug}` },
+  ];
 
   return (
     <>
-      <JsonLd
-        data={buildBreadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Services", path: "/services" },
-          { name: service.name, path: `/services/${service.slug}` },
-        ])}
-      />
+      <JsonLd data={buildBreadcrumbJsonLd(breadcrumbItems)} />
 
       <section className="relative flex h-[70svh] min-h-[440px] items-end overflow-hidden bg-charcoal text-cream">
         <Image src={service.heroImage.src} alt={service.heroImage.alt} fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/25 to-charcoal/10" />
         <Container className="relative pb-16 pt-32">
-          <Label className="text-sandstone">Service</Label>
+          <Breadcrumbs items={breadcrumbItems} tone="dark" />
+          <Label className="mt-6 block text-sandstone">Service</Label>
           <h1 className="mt-5 max-w-2xl font-display text-fluid-3xl leading-[0.98] text-balance">{service.name}</h1>
         </Container>
       </section>

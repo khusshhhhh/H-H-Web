@@ -42,6 +42,7 @@ export const siteConfig = {
 export const primaryNav: NavItem[] = [
   { label: "Projects", href: "/projects" },
   { label: "Services", href: "/services" },
+  { label: "Areas We Serve", href: "/areas" },
   { label: "Our Process", href: "/process" },
   { label: "About", href: "/about" },
   { label: "Journal", href: "/journal" },
@@ -55,4 +56,11 @@ export const footerNav: NavItem[] = [
   { label: "House & Land", href: "/services/house-and-land" },
   { label: "Developments", href: "/services/residential-developments" },
   { label: "Renovations", href: "/services/renovations-extensions" },
+];
+
+export const moreNav: NavItem[] = [
+  { label: "Areas We Serve", href: "/areas" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Journal", href: "/journal" },
 ];

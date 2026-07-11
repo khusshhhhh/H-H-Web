@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { MaskReveal } from "@/components/motion/MaskReveal";
+import { ParallaxLayer } from "@/components/motion/ParallaxLayer";
 import { TeamGrid } from "@/components/about/TeamGrid";
 
 export const metadata: Metadata = buildMetadata({
@@ -77,13 +78,15 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
             <MaskReveal className="aspect-[4/5] overflow-hidden rounded-sm lg:col-span-6">
-              <Image
-                src="/images/projects/burnside-ridge-residence/gallery/01.jpg"
-                alt="Open-plan living space in a Hills & Harbour project"
-                fill
-                sizes="(min-width: 1024px) 40vw, 90vw"
-                className="object-cover"
-              />
+              <ParallaxLayer speed={0.07} className="absolute -inset-y-10 inset-x-0">
+                <Image
+                  src="/images/projects/burnside-ridge-residence/gallery/01.jpg"
+                  alt="Open-plan living space in a Hills & Harbour project"
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 90vw"
+                  className="object-cover"
+                />
+              </ParallaxLayer>
             </MaskReveal>
           </div>
         </Container>

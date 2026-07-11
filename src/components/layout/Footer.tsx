@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteConfig, footerNav, primaryNav } from "@/content/site-config";
+import { siteConfig, footerNav, primaryNav, moreNav } from "@/content/site-config";
 import { Container } from "@/components/ui/Container";
 import { AnimatedLink } from "@/components/ui/AnimatedLink";
 import { Label } from "@/components/ui/Label";
@@ -9,14 +9,14 @@ export function Footer() {
     <footer className="border-t border-charcoal/10 bg-cream pt-20 pb-10 text-charcoal">
       <Container>
         <div className="grid grid-cols-1 gap-12 border-b border-charcoal/10 pb-16 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <p className="font-display text-fluid-xl leading-[1.05] text-balance">
               Let&rsquo;s create a home that belongs to you.
             </p>
             <p className="mt-6 max-w-sm text-fluid-sm text-charcoal/65">{siteConfig.description}</p>
           </div>
 
-          <nav aria-label="Services" className="lg:col-span-3">
+          <nav aria-label="Services" className="lg:col-span-2">
             <Label className="mb-5 block text-charcoal/50">Services</Label>
             <ul className="flex flex-col gap-3">
               {footerNav.map((item) => (
@@ -32,13 +32,30 @@ export function Footer() {
           <nav aria-label="Site" className="lg:col-span-2">
             <Label className="mb-5 block text-charcoal/50">Site</Label>
             <ul className="flex flex-col gap-3">
-              {primaryNav.map((item) => (
-                <li key={item.href}>
-                  <AnimatedLink href={item.href} className="text-fluid-sm text-charcoal/75">
-                    {item.label}
-                  </AnimatedLink>
-                </li>
-              ))}
+              {primaryNav
+                .filter((item) => item.href !== "/areas")
+                .map((item) => (
+                  <li key={item.href}>
+                    <AnimatedLink href={item.href} className="text-fluid-sm text-charcoal/75">
+                      {item.label}
+                    </AnimatedLink>
+                  </li>
+                ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="More" className="lg:col-span-2">
+            <Label className="mb-5 block text-charcoal/50">More</Label>
+            <ul className="flex flex-col gap-3">
+              {moreNav
+                .filter((item) => item.href !== "/journal")
+                .map((item) => (
+                  <li key={item.href}>
+                    <AnimatedLink href={item.href} className="text-fluid-sm text-charcoal/75">
+                      {item.label}
+                    </AnimatedLink>
+                  </li>
+                ))}
             </ul>
           </nav>
 

@@ -72,6 +72,60 @@ export const articles: Article[] = [
       "None of this needs to compromise the reason most people want to build near the coast in the first place: the light, the outlook and the breeze. Good coastal design simply plans for the environment instead of hoping it won't matter.",
     ],
   },
+  {
+    slug: "what-does-a-custom-home-actually-cost-in-adelaide",
+    title: "What Does a Custom Home Actually Cost in Adelaide?",
+    excerpt:
+      "Every published 'price per square metre' figure hides more than it reveals. Here's how we actually build a realistic budget, and the line items that catch first-time clients out.",
+    coverImage: { src: "/images/journal/adelaide-building-costs.jpg", alt: "Kitchen with marble-look benchtops and pendant lighting", width: 1200, height: 800, isPlaceholder: true },
+    publishedAt: "2026-06-08",
+    author: "James Whitfield",
+    tags: ["Budget", "Advice"],
+    readingMinutes: 6,
+    body: [
+      "A 'price per square metre' figure is close to useless on its own, because it depends entirely on what's included — site works, floor coverings, driveways and landscaping are excluded from some quoted rates and included in others, and there's no industry-standard way to compare one builder's headline figure against another's.",
+      "We build a budget from the site up rather than from a rate down. Soil classification and slope determine footing and site-works costs before a single fixture is chosen, and on a meaningful minority of Adelaide sites — particularly in the Hills or on reactive clay — this single factor moves the budget more than any finish selection will.",
+      "Selections are the second-biggest lever, and the one clients have the most control over. Tapware, tiling, joinery and appliances can vary by tens of thousands of dollars between a project-home-grade specification and a considered one, without changing the home's footprint at all. We present real options at real prices during selections, not a single 'included' tier designed to look attractive in a display home.",
+      "The costs that catch first-time clients out are almost always the ones outside the build contract itself: council and planning fees, a geotechnical report, temporary services connections, and — for a knockdown rebuild — demolition and asbestos removal. None of these are hidden by builders acting in good faith, but they're genuinely easy to under-budget for if nobody itemises them up front.",
+      "Our estimating process puts every one of these line items in front of a client before a contract is signed, priced against their actual site rather than a generic allowance. It takes longer than handing over a one-page quote, and it's the reason our clients rarely see a number change between contract and handover.",
+    ],
+  },
+  {
+    slug: "navigating-council-approvals-in-adelaide",
+    title: "Navigating Council Approvals in Adelaide: A Practical Guide",
+    excerpt:
+      "Planning consent, building consent, and the difference between them — a plain-language walkthrough of how approvals actually move through South Australia's system.",
+    coverImage: { src: "/images/journal/council-approvals-guide.jpg", alt: "Hand drawing architectural plans on paper", width: 1200, height: 800, isPlaceholder: true },
+    publishedAt: "2026-04-22",
+    author: "Elena Kovacs",
+    tags: ["Approvals", "Process"],
+    readingMinutes: 6,
+    body: [
+      "South Australia's development approval system separates planning consent (does this development comply with the relevant Planning and Design Code) from building consent (does the construction itself meet the National Construction Code) — most delays we see stem from clients, and occasionally builders, treating these as one step rather than two.",
+      "Whether an application is assessed by council, a private certifier, or lodged as a lower-tier accepted or code-assessed development depends on the zone, the overlay layers on the specific title, and the scale of what's proposed. A modest renovation in a General Neighbourhood zone can sometimes proceed with minimal assessment, while the same footprint in a Historic Conservation zone will face a genuinely different process.",
+      "Heritage overlays, character preservation zones and tree-damaging activity provisions are the ones most likely to surprise clients, because they can apply to a property without an obviously heritage-listed building on it — a precinct-level overlay affects every allotment inside its boundary, not just the standout examples.",
+      "We complete a title and overlay search at site assessment, before concept design begins, specifically so a design direction isn't developed against assumptions that a planning search later contradicts. It is far cheaper to adjust a concept sketch than a set of construction drawings already at documentation stage.",
+      "Timeframes are the question we're asked most often, and the honest answer is that they vary by council and by the complexity of the overlays involved — but a realistic planning and building consent allowance, built into the program from day one rather than treated as a rounding error, is what actually keeps a project on schedule.",
+    ],
+  },
+  {
+    slug: "small-lot-big-ambition-designing-for-inner-suburbs",
+    title: "Small Lot, Big Ambition: Designing for Adelaide's Inner Suburbs",
+    excerpt:
+      "Narrow frontages, tight setbacks and overlooking rules don't have to mean a compromised home. Here's how considered design earns back space that a standard floor plan gives away.",
+    coverImage: { src: "/images/journal/small-lot-inner-suburbs.jpg", alt: "Contemporary home with dark cladding on a narrow inner-suburban block", width: 1200, height: 800, isPlaceholder: true },
+    publishedAt: "2026-01-14",
+    author: "Nathan Cole",
+    tags: ["Design", "Small Lots"],
+    readingMinutes: 5,
+    body: [
+      "Suburbs like Norwood, Unley and Parkside offer land value and location that new estates can't match, at the cost of narrower frontages, tighter side setbacks and overlooking provisions that constrain where windows and outdoor space can go. A floor plan drawn for a standard suburban block simply doesn't transfer.",
+      "The single biggest lever on a narrow lot is section, not just plan — borrowing height rather than width, with a void or a raked ceiling over a compact footprint, makes a home feel considerably larger than its floor area suggests without breaching any envelope controls.",
+      "Light wells and courtyards do double duty on tight sites: they bring natural light into a deep, narrow plan where windows on only two elevations would otherwise leave the centre of the home dark, and they satisfy separation requirements from neighbouring windows more gracefully than a boundary fence and hope.",
+      "Storage is the detail that's usually sacrificed first on a small lot and the one that causes the most regret afterward. We treat joinery as part of the architecture from concept stage — built-in rather than added later — because there generally isn't a garage or a shed to absorb what didn't fit inside.",
+      "None of this is about making do with less. It's about recognising that a well-considered small home on a well-located block often outperforms a larger home further out, for the way most of our clients actually want to live.",
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug: string) {

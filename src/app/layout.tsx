@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { fontDisplay, fontSans } from "@/app/fonts";
 import { siteConfig } from "@/content/site-config";
 import { LenisProvider } from "@/components/motion/LenisProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
+import { BackToTop } from "@/components/ui/BackToTop";
+import { StickyEnquiryCta } from "@/components/ui/StickyEnquiryCta";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -74,7 +78,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div
           id="hh-loading-overlay"
           className="fixed inset-0 z-[200] flex items-center justify-center bg-charcoal"
-          aria-hidden="true"
+          role="status"
+          aria-live="polite"
+          aria-label="Loading Hills & Harbour"
         >
           <div className="flex flex-col items-center justify-center">
             <button
@@ -84,16 +90,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             >
               Skip intro
             </button>
-            <img src="/images/logo/whitelogo.png" alt="Hills & Harbour" className="h-24 w-auto" />
+            <Image src="/images/logo/whitelogo.png" alt="Hills & Harbour" width={240} height={58} className="h-24 w-auto" priority />
             <span id="hh-loading-progress" className="mt-6 font-display text-fluid-sm tabular-nums text-cream/70">0%</span>
           </div>
         </div>
         <LenisProvider>
+          <ScrollProgressBar />
           <Header />
           <main id="main-content" className="flex-1">
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
+          <BackToTop />
+          <StickyEnquiryCta />
         </LenisProvider>
       </body>
     </html>
