@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { fontDisplay, fontSans } from "@/app/fonts";
 import { siteConfig } from "@/content/site-config";
 import { LenisProvider } from "@/components/motion/LenisProvider";
@@ -75,26 +74,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
 
-        {/* Server-rendered loading overlay (removed by client when finished) */}
-        <div
-          id="hh-loading-overlay"
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-charcoal"
-          role="status"
-          aria-live="polite"
-          aria-label="Loading Hills & Harbour"
-        >
-          <div className="flex flex-col items-center justify-center">
-            <button
-              id="hh-skip"
-              type="button"
-              className="absolute right-6 top-6 text-fluid-xs uppercase tracking-widest2 text-cream/50"
-            >
-              Skip intro
-            </button>
-            <Image src="/images/logo/whitelogo.png" alt="Hills & Harbour" width={240} height={58} className="h-24 w-auto" priority />
-            <span id="hh-loading-progress" className="mt-6 font-display text-fluid-sm tabular-nums text-cream/70">0%</span>
-          </div>
-        </div>
         <LenisProvider>
           <LoadingSequence />
           <ScrollProgressBar />
