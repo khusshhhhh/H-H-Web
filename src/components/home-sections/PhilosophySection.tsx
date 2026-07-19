@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { gsap, ScrollTrigger, registerGsap } from "@/lib/animation/gsap";
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe";
 import { useIsMobile } from "@/hooks/useMediaQuery";
@@ -34,7 +34,7 @@ export function PhilosophySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeStage, setActiveStage] = useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (reduced || isMobile || !sectionRef.current) return;
     registerGsap();
 

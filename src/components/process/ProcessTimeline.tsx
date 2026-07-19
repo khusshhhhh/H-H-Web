@@ -33,7 +33,7 @@ export function ProcessTimeline({ variant = "full" }: ProcessTimelineProps) {
           ))}
         </div>
         <div className="mt-6 hidden h-px w-full bg-cream/15 lg:block" aria-hidden="true">
-          <motion.div className="h-px bg-terracotta" style={reduced ? undefined : { width: lineHeight }} />
+          <motion.div className="h-px bg-terracotta" style={reduced ? { width: "100%" } : { width: lineHeight }} />
         </div>
       </div>
     );
