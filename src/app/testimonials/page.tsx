@@ -24,7 +24,7 @@ export default function TestimonialsPage() {
       <PageHeroBanner
         eyebrow="Client Stories"
         title="Judged on what clients say after handover, not before"
-        description="Placeholder testimonials illustrating the tone and detail we'll gather from real clients — final quotes will replace these before launch."
+        description="Straight from the people who lived through the build — the wins, the hard conversations, and how it felt to move in."
       />
 
       <section className="bg-cream py-24 lg:py-32" aria-label="Featured testimonial">

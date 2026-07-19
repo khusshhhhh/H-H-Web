@@ -20,13 +20,13 @@ export function MaskReveal({ children, className, delay = 0, once = true, direct
   const hiddenClip = direction === "up" ? "inset(100% 0% 0% 0%)" : "inset(0% 100% 0% 0%)";
 
   if (reduced) {
-    return <div className={cn("overflow-hidden", className)}>{children}</div>;
+    return <div className={cn("relative overflow-hidden", className)}>{children}</div>;
   }
 
   return (
-    <div className={cn("overflow-hidden", className)}>
+    <div className={cn("relative overflow-hidden", className)}>
       <motion.div
-        className="h-full w-full"
+        className="relative h-full w-full"
         initial={{ clipPath: hiddenClip, scale: 1.08 }}
         whileInView={{ clipPath: "inset(0% 0% 0% 0%)", scale: 1 }}
         viewport={{ once }}

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -9,7 +8,34 @@ import { SplitText } from "@/components/motion/SplitText";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe";
 import { usePointerFine } from "@/hooks/useMediaQuery";
-// 3D scene removed; static imagery used instead
+
+/** Faint architectural line drawing — a hillside horizon and a house elevation — standing in for photography. */
+function HeroLineArt() {
+  return (
+    <svg
+      viewBox="0 0 1200 800"
+      preserveAspectRatio="xMaxYMax meet"
+      className="absolute bottom-0 right-0 h-[85%] w-[65%] max-w-[760px] opacity-[0.5]"
+      aria-hidden="true"
+    >
+      <line x1="0" y1="560" x2="1200" y2="560" stroke="#F3F0E9" strokeWidth="1" strokeOpacity="0.35" />
+      <path
+        d="M0 560 C 160 460, 260 460, 380 560 S 620 460, 760 560 S 1000 460, 1200 560"
+        fill="none"
+        stroke="#C9B9A3"
+        strokeWidth="1.4"
+        strokeOpacity="0.5"
+      />
+      <g stroke="#F3F0E9" strokeWidth="1.6" strokeOpacity="0.5" fill="none" strokeLinejoin="round">
+        <polyline points="620,560 620,380 780,300 940,380 940,560" />
+        <line x1="620" y1="380" x2="940" y2="380" />
+      </g>
+      <polyline points="620,380 780,300 940,380" fill="none" stroke="#A8583C" strokeWidth="2.5" strokeOpacity="0.65" />
+      <rect x="670" y="440" width="60" height="80" fill="none" stroke="#F3F0E9" strokeWidth="1.2" strokeOpacity="0.5" />
+      <rect x="850" y="440" width="60" height="80" fill="none" stroke="#F3F0E9" strokeWidth="1.2" strokeOpacity="0.5" />
+    </svg>
+  );
+}
 
 export function Hero() {
   const reduced = useReducedMotionSafe();
@@ -36,22 +62,28 @@ export function Hero() {
       className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-charcoal"
       aria-label="Introduction"
     >
-      <motion.div
-        className="absolute inset-0 -z-10"
-        animate={{ x: offset.x * -14, y: offset.y * -10, scale: 1.08 }}
-        transition={{ type: "spring", stiffness: 40, damping: 20 }}
-      >
-        <Image
-          src="/images/home/hero.jpg"
-          alt="Contemporary Adelaide home at dusk, framed by mature eucalypt trees"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
+      {/* Clean, minimalist background — no photography, just tone, grid and faint line art */}
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #F3F0E9 1px, transparent 1px), linear-gradient(to bottom, #F3F0E9 1px, transparent 1px)",
+            backgroundSize: "clamp(32px, 6vw, 56px) clamp(32px, 6vw, 56px)",
+          }}
         />
-      </motion.div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-charcoal via-charcoal/25 to-charcoal/10" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-charcoal/50 via-transparent to-transparent" />
+        <div className="absolute -top-1/3 right-[-15%] h-[70vw] w-[70vw] max-w-[900px] rounded-full bg-terracotta/[0.14] blur-[120px]" />
+        <div className="absolute bottom-[-25%] left-[-15%] h-[55vw] w-[55vw] max-w-[600px] rounded-full bg-eucalyptus/[0.12] blur-[110px]" />
+
+        <motion.div
+          className="absolute inset-0 hidden sm:block"
+          animate={{ x: offset.x * -10, y: offset.y * -8 }}
+          transition={{ type: "spring", stiffness: 40, damping: 20 }}
+        >
+          <HeroLineArt />
+        </motion.div>
+      </div>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/30" />
 
       <div className="relative z-10 w-full px-6 pb-16 pt-32 sm:px-8 lg:px-12 lg:pb-24">
         <div className="mb-6 flex items-center gap-2.5 text-cream/85">
@@ -85,13 +117,6 @@ export function Hero() {
       <div className="absolute bottom-8 right-6 z-10 hidden lg:right-12 lg:block">
         <ScrollIndicator tone="dark" />
       </div>
-
-      {/* <div className="absolute right-6 top-28 z-10 hidden overflow-hidden rounded-sm border border-cream/20 bg-charcoal/40 backdrop-blur-sm sm:block lg:right-12">
-        <SceneLoader variant="hero" className="relative h-40 w-40 lg:h-56 lg:w-56" />
-        <p className="border-t border-cream/15 px-3 py-2 text-center text-fluid-xs uppercase tracking-widest2 text-cream/60">
-          Explore in 3D
-        </p>
-      </div> */}
     </section>
   );
 }

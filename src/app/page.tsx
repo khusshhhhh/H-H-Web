@@ -1,4 +1,3 @@
-import { LoadingSequence } from "@/components/home-sections/LoadingSequence";
 import { Hero } from "@/components/home-sections/Hero";
 import { PhilosophySection } from "@/components/home-sections/PhilosophySection";
 import { FeaturedProjects } from "@/components/home-sections/FeaturedProjects";
@@ -12,7 +11,6 @@ import { ClosingCTA } from "@/components/home-sections/ClosingCTA";
 export default function HomePage() {
   return (
     <>
-      <LoadingSequence />
       <Hero />
       <PhilosophySection />
       <FeaturedProjects />

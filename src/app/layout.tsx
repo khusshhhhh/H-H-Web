@@ -3,6 +3,7 @@ import Image from "next/image";
 import { fontDisplay, fontSans } from "@/app/fonts";
 import { siteConfig } from "@/content/site-config";
 import { LenisProvider } from "@/components/motion/LenisProvider";
+import { LoadingSequence } from "@/components/home-sections/LoadingSequence";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/layout/PageTransition";
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </div>
         <LenisProvider>
+          <LoadingSequence />
           <ScrollProgressBar />
           <Header />
           <main id="main-content" className="flex-1">
