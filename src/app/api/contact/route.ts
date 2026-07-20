@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validation/contact-schema";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { sendContactNotification } from "@/lib/email";
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
@@ -28,12 +29,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: false, errors: parsed.error.flatten() }, { status: 422 });
   }
 
-  // TODO(integration): replace this log with a real CRM/email dispatch, e.g.:
-  //   - POST to a CRM API (HubSpot, Pipedrive)
-  //   - send a transactional email via Resend/SendGrid
+  // TODO(integration): optionally also POST to a CRM API (HubSpot, Pipedrive).
   // Server-side secrets (e.g. process.env.CRM_API_KEY) belong only here —
-  // never in client-side code. See README "Form/API integration" section.
+  // never in client-side code.
   console.log("[contact:new-submission]", { ...parsed.data, honeypot: undefined });
+  await sendContactNotification(parsed.data);
 
   return NextResponse.json({ success: true }, { status: 200 });
 }
