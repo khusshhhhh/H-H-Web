@@ -85,29 +85,29 @@ export function Hero() {
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/30" />
 
-      <div className="relative z-10 w-full px-6 pb-16 pt-32 sm:px-8 lg:px-12 lg:pb-24">
-        <div className="mb-6 flex items-center gap-2.5 text-cream/85">
+      <div className="relative z-10 w-full px-6 pb-10 pt-28 sm:px-8 sm:pb-16 sm:pt-32 lg:px-12 lg:pb-24">
+        <div className="mb-4 flex items-center gap-2.5 text-cream/85 sm:mb-6">
           <MapPin size={15} aria-hidden="true" className="text-terracotta" />
           <span className="text-fluid-xs uppercase tracking-widest2">Adelaide, South Australia</span>
         </div>
 
-        <h1 className="max-w-5xl text-fluid-hero font-display font-normal leading-[0.94] text-cream text-balance">
+        <h1 className="max-w-5xl text-[clamp(2.5rem,11vw,3.75rem)] font-display font-normal leading-[1.05] text-cream text-balance sm:text-[clamp(3.25rem,8vw,5.5rem)] sm:leading-[0.98] lg:text-fluid-hero lg:leading-[0.94]">
           <SplitText text="Homes shaped around" as="span" className="block" />
           <SplitText text="the way you live." as="span" className="block" delay={0.15} />
         </h1>
 
-        <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mt-6 flex flex-col gap-6 sm:mt-8 sm:gap-8 lg:flex-row lg:items-end lg:justify-between">
           <p className="max-w-md text-fluid-base leading-relaxed text-cream/80">
             Hills &amp; Harbour designs and builds custom homes, considered renovations and small
             developments across Adelaide — shaped by your site, your climate and the way your
             household actually lives.
           </p>
 
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Button href="/projects" tone="dark" variant="primary" size="lg" magnetic>
+          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+            <Button href="/projects" tone="dark" variant="primary" size="lg" magnetic className="w-full justify-center sm:w-auto">
               Explore our homes
             </Button>
-            <Button href="/enquiry" tone="dark" variant="outline" size="lg" magnetic>
+            <Button href="/enquiry" tone="dark" variant="outline" size="lg" magnetic className="w-full justify-center sm:w-auto">
               Start your project
             </Button>
           </div>

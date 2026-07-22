@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import { useLenisScrollTrigger } from "@/hooks/useLenisScrollTrigger";
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe";
+import { useIsMobile } from "@/hooks/useMediaQuery";
 import { ScrollTrigger } from "@/lib/animation/gsap";
 
 interface LenisContextValue {
@@ -22,7 +23,14 @@ export function useLenis() {
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   const reduced = useReducedMotionSafe();
-  const lenisRef = useLenisScrollTrigger(!reduced);
+  const isMobile = useIsMobile();
+  // Lenis re-implements scrolling via JS easing, tuned for mouse-wheel input.
+  // On touch devices it adds ticker/ScrollTrigger overhead on every frame for
+  // no benefit — native touch scrolling is already smooth and more
+  // responsive than a JS-driven approximation of it. Skip Lenis entirely on
+  // mobile/touch and let the browser handle scrolling natively; GSAP
+  // ScrollTrigger works fine against native scroll with no proxy set up.
+  const lenisRef = useLenisScrollTrigger(!reduced && !isMobile);
   const pathname = usePathname();
 
   useEffect(() => {
