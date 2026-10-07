@@ -1,5 +1,5 @@
-import { LoadingSequence } from "@/components/home-sections/LoadingSequence";
 import { Hero } from "@/components/home-sections/Hero";
+import { MarqueeBand } from "@/components/home-sections/MarqueeBand";
 import { PhilosophySection } from "@/components/home-sections/PhilosophySection";
 import { FeaturedProjects } from "@/components/home-sections/FeaturedProjects";
 import { SignatureHouse } from "@/components/home-sections/SignatureHouse";
@@ -12,8 +12,8 @@ import { ClosingCTA } from "@/components/home-sections/ClosingCTA";
 export default function HomePage() {
   return (
     <>
-      <LoadingSequence />
       <Hero />
+      <MarqueeBand />
       <PhilosophySection />
       <FeaturedProjects />
       <SignatureHouse />

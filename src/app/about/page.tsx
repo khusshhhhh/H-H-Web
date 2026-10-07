@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Compass, Ruler, HeartHandshake, Leaf } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/content/site-config";
-import { PageHeroBanner } from "@/components/ui/PageHeroBanner";
+import { PageHeroBanner, bannerImages } from "@/components/ui/PageHeroBanner";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
@@ -45,6 +45,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeroBanner
+        image={bannerImages.about}
         eyebrow="About Us"
         title="A studio built around considered residential design"
         description="Hills & Harbour was founded to bring a design-first, transparent approach to residential building in Adelaide — without the trade-offs that usually come with either volume building or bespoke architecture alone."
@@ -80,8 +81,8 @@ export default function AboutPage() {
             <MaskReveal className="aspect-[4/5] overflow-hidden rounded-sm lg:col-span-6">
               <ParallaxLayer speed={0.07} className="absolute -inset-y-10 inset-x-0">
                 <Image
-                  src="/images/projects/burnside-ridge-residence/gallery/01.jpg"
-                  alt="Open-plan living space in a Hills & Harbour project"
+                  src="/images/about/studio.jpg"
+                  alt="Two members of the studio reviewing material samples beside steel-framed windows"
                   fill
                   sizes="(min-width: 1024px) 40vw, 90vw"
                   className="object-cover"

@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { serviceAreas } from "@/content/areas";
 import { projects } from "@/content/projects";
-import { PageHeroBanner } from "@/components/ui/PageHeroBanner";
+import { PageHeroBanner, bannerImages } from "@/components/ui/PageHeroBanner";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { MaskReveal } from "@/components/motion/MaskReveal";
@@ -23,12 +23,13 @@ export default function AreasPage() {
   return (
     <>
       <PageHeroBanner
+        image={bannerImages.areas}
         eyebrow="Where We Build"
         title="From the foothills to the coast"
         description="Every region we work in asks something different of a design — here's what changes, and where we've already built."
       />
 
-      <section className="bg-cream pb-28 lg:pb-36" aria-label="Areas we serve">
+      <section className="bg-cream py-24 lg:py-32" aria-label="Areas we serve">
         <Container>
           <div className="flex flex-col gap-28 lg:gap-36">
             {serviceAreas.map((area, index) => {

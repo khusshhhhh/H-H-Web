@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
-import { PageHeroBanner } from "@/components/ui/PageHeroBanner";
+import { PageHeroBanner, bannerImages } from "@/components/ui/PageHeroBanner";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ProcessTimeline } from "@/components/process/ProcessTimeline";
@@ -17,6 +17,7 @@ export default function ProcessPage() {
   return (
     <>
       <PageHeroBanner
+        image={bannerImages.process}
         eyebrow="Our Process"
         title="Eight stages, one point of accountability"
         description="Building a home involves dozens of decisions and handoffs. We've structured our process so you always know what stage you're at, what happens next, and who to ask."

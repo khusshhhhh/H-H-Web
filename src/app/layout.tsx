@@ -3,6 +3,7 @@ import Image from "next/image";
 import { fontDisplay, fontSans } from "@/app/fonts";
 import { siteConfig } from "@/content/site-config";
 import { LenisProvider } from "@/components/motion/LenisProvider";
+import { LoadingSequence } from "@/components/home-sections/LoadingSequence";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/layout/PageTransition";
@@ -94,7 +95,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <span id="hh-loading-progress" className="mt-6 font-display text-fluid-sm tabular-nums text-cream/70">0%</span>
           </div>
         </div>
+        <div className="hh-grain" aria-hidden="true" />
         <LenisProvider>
+          {/* Mounted here rather than on the home page so the overlay above is dismissed on whichever route loads first. */}
+          <LoadingSequence />
           <ScrollProgressBar />
           <Header />
           <main id="main-content" className="flex-1">

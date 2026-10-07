@@ -6,7 +6,7 @@ export const articles: Article[] = [
     title: "Designing for Adelaide's Climate, Not Against It",
     excerpt:
       "Hot, dry summers and mild, wet winters call for a different set of design responses than the display-home defaults most builders reach for. Here's what we actually specify, and why.",
-    coverImage: { src: "/images/journal/adelaide-climate.jpg", alt: "Indoor-outdoor living space with stone fireplace opening to a courtyard", width: 1200, height: 800, isPlaceholder: true },
+    coverImage: { src: "/images/journal/adelaide-climate.jpg", alt: "Shaded indoor-outdoor terrace with a timber screen opening onto a planted courtyard", width: 1500, height: 1000, isPlaceholder: true },
     publishedAt: "2026-02-11",
     author: "Nathan Cole",
     tags: ["Design", "Climate", "Sustainability"],
@@ -24,7 +24,7 @@ export const articles: Article[] = [
     title: "What a Knockdown Rebuild Actually Involves",
     excerpt:
       "Demolition, services relocation, council approvals and the build itself — the knockdown rebuild process has more moving parts than most homeowners expect. Here's the realistic sequence.",
-    coverImage: { src: "/images/journal/knockdown-rebuild.jpg", alt: "Interior wall opened up during a renovation, showing timber framing", width: 1200, height: 800, isPlaceholder: true },
+    coverImage: { src: "/images/journal/knockdown-rebuild.jpg", alt: "Excavator demolishing a weatherboard house ahead of a rebuild", width: 1500, height: 1000, isPlaceholder: true },
     publishedAt: "2025-11-04",
     author: "Elena Kovacs",
     tags: ["Knockdown Rebuild", "Process"],
@@ -42,7 +42,7 @@ export const articles: Article[] = [
     title: "Renovation or Rebuild: How We Help Clients Decide",
     excerpt:
       "The right answer isn't always obvious from the street. We walk through the structural, financial and lifestyle factors that actually determine whether to renovate or start again.",
-    coverImage: { src: "/images/journal/renovate-or-rebuild.jpg", alt: "Living room with arched openings during a renovation project", width: 1200, height: 800, isPlaceholder: true },
+    coverImage: { src: "/images/journal/renovate-or-rebuild.jpg", alt: "Interior wall opened up during a renovation, showing the original framing beside a finished room", width: 1500, height: 1000, isPlaceholder: true },
     publishedAt: "2025-08-19",
     author: "Claire Bennett",
     tags: ["Renovations", "Advice"],
@@ -60,7 +60,7 @@ export const articles: Article[] = [
     title: "Building Near Adelaide's Beaches: What Changes",
     excerpt:
       "Salt air, sea breezes and coastal planning overlays all affect what and how you build from Henley Beach to Glenelg. Here's what we specify differently on coastal blocks.",
-    coverImage: { src: "/images/journal/coastal-living.jpg", alt: "Sunrise over the ocean near an Adelaide beach suburb", width: 1200, height: 800, isPlaceholder: true },
+    coverImage: { src: "/images/journal/coastal-living.jpg", alt: "Contemporary coastal homes set behind sand dunes", width: 1500, height: 1000, isPlaceholder: true },
     publishedAt: "2025-05-27",
     author: "James Whitfield",
     tags: ["Coastal", "Materials"],
@@ -77,7 +77,7 @@ export const articles: Article[] = [
     title: "What Does a Custom Home Actually Cost in Adelaide?",
     excerpt:
       "Every published 'price per square metre' figure hides more than it reveals. Here's how we actually build a realistic budget, and the line items that catch first-time clients out.",
-    coverImage: { src: "/images/journal/adelaide-building-costs.jpg", alt: "Kitchen with marble-look benchtops and pendant lighting", width: 1200, height: 800, isPlaceholder: true },
+    coverImage: { src: "/images/journal/adelaide-building-costs.jpg", alt: "Sketchbook, material swatches and annotated plans on a designer's desk", width: 1500, height: 1000, isPlaceholder: true },
     publishedAt: "2026-06-08",
     author: "James Whitfield",
     tags: ["Budget", "Advice"],
@@ -95,7 +95,7 @@ export const articles: Article[] = [
     title: "Navigating Council Approvals in Adelaide: A Practical Guide",
     excerpt:
       "Planning consent, building consent, and the difference between them — a plain-language walkthrough of how approvals actually move through South Australia's system.",
-    coverImage: { src: "/images/journal/council-approvals-guide.jpg", alt: "Hand drawing architectural plans on paper", width: 1200, height: 800, isPlaceholder: true },
+    coverImage: { src: "/images/journal/council-approvals-guide.jpg", alt: "Architectural floor plan drawing on paper", width: 1500, height: 1000, isPlaceholder: true },
     publishedAt: "2026-04-22",
     author: "Elena Kovacs",
     tags: ["Approvals", "Process"],
@@ -113,7 +113,7 @@ export const articles: Article[] = [
     title: "Small Lot, Big Ambition: Designing for Adelaide's Inner Suburbs",
     excerpt:
       "Narrow frontages, tight setbacks and overlooking rules don't have to mean a compromised home. Here's how considered design earns back space that a standard floor plan gives away.",
-    coverImage: { src: "/images/journal/small-lot-inner-suburbs.jpg", alt: "Contemporary home with dark cladding on a narrow inner-suburban block", width: 1200, height: 800, isPlaceholder: true },
+    coverImage: { src: "/images/journal/small-lot-inner-suburbs.jpg", alt: "Narrow contemporary home with planted balconies on a compact block", width: 1500, height: 1000, isPlaceholder: true },
     publishedAt: "2026-01-14",
     author: "Nathan Cole",
     tags: ["Design", "Small Lots"],

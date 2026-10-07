@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Sun, Mountain, DoorOpen, Waves, ClipboardCheck, Leaf } from "lucide-react";
+import { Sun, Mountain, DoorOpen, Waves, ClipboardCheck, Leaf, ArrowUpRight } from "lucide-react";
+import { serviceAreas } from "@/content/areas";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
@@ -63,6 +66,35 @@ export function AdelaideConnection() {
             </ScrollReveal>
           ))}
         </div>
+
+        <ul className="mt-20 grid grid-cols-2 gap-4 lg:mt-24 lg:grid-cols-4 lg:gap-6" role="list" aria-label="Regions we build in">
+          {serviceAreas.map((area, index) => (
+            <ScrollReveal as="li" key={area.slug} delay={index * 0.06} className={index % 2 === 1 ? "lg:mt-12" : undefined}>
+              <Link href="/areas" className="group relative block aspect-[3/4] overflow-hidden rounded-sm bg-charcoal">
+                <Image
+                  src={area.image.src}
+                  alt={area.image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 22vw, 45vw"
+                  className="object-cover transition-transform duration-[1200ms] ease-editorial group-hover:scale-[1.07]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/10 to-transparent" />
+                <span className="absolute left-4 top-4 text-[0.65rem] tabular-nums tracking-widest2 text-cream/80">0{index + 1}</span>
+                <ArrowUpRight
+                  size={18}
+                  className="absolute right-4 top-4 text-cream opacity-0 transition-all duration-500 ease-editorial group-hover:opacity-100"
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-x-4 bottom-4">
+                  <p className="font-display text-fluid-lg leading-tight text-cream">{area.name}</p>
+                  <p className="mt-1 text-[0.65rem] uppercase tracking-widest2 text-cream/60">
+                    {area.suburbs.slice(0, 2).join(" · ")}
+                  </p>
+                </div>
+              </Link>
+            </ScrollReveal>
+          ))}
+        </ul>
       </Container>
     </section>
   );

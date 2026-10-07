@@ -9,6 +9,7 @@ export const processSteps: ProcessStep[] = [
     fullDescription:
       "Every project starts with an unhurried conversation about how you want to live, what you've loved or struggled with in previous homes, and the realistic parameters of budget and timeframe. There's no obligation and no generic sales pitch — just an honest read on whether we're the right fit for each other.",
     durationEstimate: "1 meeting",
+    image: { src: "/images/process/initial-conversation.jpg", alt: "Designer and client talking through a brief across a studio desk", width: 1200, height: 900, isPlaceholder: true },
   },
   {
     order: 2,
@@ -18,6 +19,7 @@ export const processSteps: ProcessStep[] = [
     fullDescription:
       "We assess your site's orientation, fall, soil classification, easements, tree and heritage overlays, and bushfire attack level where relevant. This is the stage that protects you from costly surprises later — a slope or a service easement discovered mid-build is far more expensive to resolve than one identified on day one.",
     durationEstimate: "1–2 weeks",
+    image: { src: "/images/process/site-assessment.jpg", alt: "Survey instrument set up on a cleared, sloping site", width: 1200, height: 900, isPlaceholder: true },
   },
   {
     order: 3,
@@ -27,7 +29,7 @@ export const processSteps: ProcessStep[] = [
     fullDescription:
       "Our design team develops a concept floor plan and elevations that respond directly to your site assessment and brief. You'll see how the home sits on the block, how light and airflow move through it, and an early material direction — with room to refine before anything is locked in.",
     durationEstimate: "3–5 weeks",
-    image: { src: "/images/process/concept-design.jpg", alt: "Hand sketching architectural plans on paper", width: 1200, height: 900, isPlaceholder: true },
+    image: { src: "/images/process/concept-design.jpg", alt: "Hand sketching a concept floor plan on paper", width: 1200, height: 900, isPlaceholder: true },
   },
   {
     order: 4,
@@ -37,6 +39,7 @@ export const processSteps: ProcessStep[] = [
     fullDescription:
       "Concept designs are developed into full working drawings, engaged with a structural engineer, and lodged for planning and building approval. We manage council and private certifier correspondence directly, keeping you informed without requiring you to interpret the process yourself.",
     durationEstimate: "6–10 weeks",
+    image: { src: "/images/process/documentation-and-approvals.jpg", alt: "Pencil and scale rule on dimensioned working drawings", width: 1200, height: 900, isPlaceholder: true },
   },
   {
     order: 5,
@@ -46,6 +49,7 @@ export const processSteps: ProcessStep[] = [
     fullDescription:
       "Working from your approved concept and budget, our selections consultant guides you through tapware, tiling, joinery, appliances and external finishes — with defaults recommended at each price point so decision fatigue doesn't derail your timeline.",
     durationEstimate: "3–4 weeks",
+    image: { src: "/images/process/selections.jpg", alt: "Flat lay of stone, timber, ceramic and fabric samples", width: 1200, height: 900, isPlaceholder: true },
   },
   {
     order: 6,
@@ -55,6 +59,7 @@ export const processSteps: ProcessStep[] = [
     fullDescription:
       "Your dedicated site supervisor coordinates trades, quality checks and scheduling, with regular site updates so you always know what stage construction has reached. Variations, if they arise, are costed and approved before work proceeds — never invoiced as a surprise.",
     durationEstimate: "7–11 months",
+    image: { src: "/images/process/construction.jpg", alt: "Timber roof trusses and wall frames against a blue sky", width: 1200, height: 900, isPlaceholder: true },
   },
   {
     order: 7,
@@ -64,6 +69,7 @@ export const processSteps: ProcessStep[] = [
     fullDescription:
       "Before handover, we complete an internal quality inspection and walk the home with you room by room, addressing any items on the defects schedule ahead of key handover. You'll leave with warranty documentation, appliance manuals and maintenance guidance specific to your home.",
     durationEstimate: "1–2 weeks",
+    image: { src: "/images/process/handover.jpg", alt: "Hand holding a set of house keys at a front door", width: 1200, height: 900, isPlaceholder: true },
   },
   {
     order: 8,
@@ -73,5 +79,6 @@ export const processSteps: ProcessStep[] = [
     fullDescription:
       "Our relationship doesn't end at handover. Every home is covered by structural warranty in line with South Australian building requirements, and we schedule a maintenance check-in within the first year to address the minor settling issues any new home experiences.",
     durationEstimate: "Ongoing",
+    image: { src: "/images/process/aftercare.jpg", alt: "Established garden with lawn and planted borders", width: 1200, height: 900, isPlaceholder: true },
   },
 ];

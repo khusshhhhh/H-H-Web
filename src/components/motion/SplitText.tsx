@@ -13,10 +13,12 @@ interface SplitTextProps {
   stagger?: number;
   delay?: number;
   once?: boolean;
+  /** Words to set in the italic serif accent (matched exactly, punctuation included). */
+  accentWords?: string[];
 }
 
 /** Word-level stagger reveal. Falls back to plain static text under reduced motion. */
-export function SplitText({ text, as = "span", className, stagger = 0.05, delay = 0, once = true }: SplitTextProps) {
+export function SplitText({ text, as = "span", className, stagger = 0.05, delay = 0, once = true, accentWords }: SplitTextProps) {
   const reduced = useReducedMotionSafe();
   const words = text.split(" ");
   const Tag = as;
@@ -42,7 +44,7 @@ export function SplitText({ text, as = "span", className, stagger = 0.05, delay 
             className="mr-[0.28em] inline-block overflow-hidden pb-[0.1em] align-bottom last:mr-0"
           >
             <motion.span
-              className="inline-block"
+              className={cn("inline-block", accentWords?.includes(word) && "accent-italic text-sandstone")}
               variants={{ hidden: { y: "115%" }, visible: { y: "0%" } }}
               transition={{ duration: 0.75, ease: [0.65, 0, 0.35, 1] }}
             >

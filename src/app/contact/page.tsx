@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/content/site-config";
-import { PageHeroBanner } from "@/components/ui/PageHeroBanner";
+import { PageHeroBanner, bannerImages } from "@/components/ui/PageHeroBanner";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/forms/ContactForm";
@@ -19,12 +19,13 @@ export default function ContactPage() {
   return (
     <>
       <PageHeroBanner
+        image={bannerImages.contact}
         eyebrow="Contact"
         title="Let's talk about your site"
         description="Whether you have a block, a home in mind, or just a question about the process — get in touch and we'll respond within one business day."
       />
 
-      <section className="bg-cream pb-28 lg:pb-36" aria-label="Contact form and details">
+      <section className="bg-cream py-24 lg:py-32" aria-label="Contact form and details">
         <Container>
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
             <div className="lg:col-span-7">

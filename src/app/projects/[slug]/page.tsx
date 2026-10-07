@@ -66,9 +66,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="animate-kenburns object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-charcoal/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/25 to-charcoal/15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/50 via-transparent to-transparent" />
         <Container className="relative pb-16 pt-32 lg:pb-24">
           <Breadcrumbs items={breadcrumbItems} tone="dark" />
           <Label className="mt-6 block text-sandstone">
@@ -107,18 +108,21 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         <Container>
           <SectionHeading eyebrow="Material Palette" title="What it's built from" />
           <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3">
-            {project.materialPalette.map((material) => (
-              <div key={material.name}>
-                <MaskReveal className="aspect-square overflow-hidden rounded-sm">
+            {project.materialPalette.map((material, index) => (
+              <div key={material.name} className="group">
+                <MaskReveal delay={index * 0.08} className="aspect-square overflow-hidden rounded-sm">
                   <Image
                     src={material.image.src}
                     alt={material.image.alt}
                     fill
                     sizes="(min-width: 640px) 30vw, 45vw"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-[1400ms] ease-editorial group-hover:scale-[1.08]"
                   />
                 </MaskReveal>
-                <p className="mt-4 text-fluid-sm text-charcoal/75">{material.name}</p>
+                <div className="mt-4 flex items-baseline gap-4 border-t border-charcoal/15 pt-4">
+                  <span className="text-fluid-xs tabular-nums tracking-widest2 text-terracotta-text">0{index + 1}</span>
+                  <p className="font-display text-fluid-base text-charcoal">{material.name}</p>
+                </div>
               </div>
             ))}
           </div>

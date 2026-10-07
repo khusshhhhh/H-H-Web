@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, Mail, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/content/site-config";
@@ -7,20 +8,31 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { AnimatedLink } from "@/components/ui/AnimatedLink";
 import { SplitText } from "@/components/motion/SplitText";
+import { ParallaxLayer } from "@/components/motion/ParallaxLayer";
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe";
 
 export function ClosingCTA() {
   const reduced = useReducedMotionSafe();
 
   return (
-    <section className="relative flex min-h-[90svh] items-center overflow-hidden bg-charcoal py-28 text-cream" aria-label="Get in touch">
+    <section className="relative isolate flex min-h-[90svh] items-center overflow-hidden bg-charcoal py-28 text-cream" aria-label="Get in touch">
+      <ParallaxLayer speed={0.08} className="absolute -inset-y-24 inset-x-0 -z-10">
+        <Image
+          src="/images/home/closing.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+      </ParallaxLayer>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-charcoal via-charcoal/85 to-charcoal/45" />
       <ArchitecturalBackground animate={!reduced} />
 
       <Container className="relative">
         <p className="text-fluid-xs uppercase tracking-widest2 text-terracotta">Start Here</p>
         <h2 className="mt-6 max-w-4xl font-display text-fluid-3xl leading-[0.98] text-cream text-balance">
           <SplitText text="Let's create a home" as="span" className="block" />
-          <SplitText text="that belongs to you." as="span" className="block" delay={0.12} />
+          <SplitText text="that belongs to you." as="span" className="block" delay={0.12} accentWords={["belongs"]} />
         </h2>
 
         <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap">
@@ -50,7 +62,7 @@ export function ClosingCTA() {
 
 function ArchitecturalBackground({ animate }: { animate: boolean }) {
   return (
-    <div className="pointer-events-none absolute inset-0 opacity-[0.15]" aria-hidden="true">
+    <div className="pointer-events-none absolute inset-0 opacity-[0.1]" aria-hidden="true">
       <svg className="h-full w-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
         {Array.from({ length: 13 }).map((_, i) => (
           <line key={`v-${i}`} x1={i * 100} y1="0" x2={i * 100} y2="800" stroke="#C9B9A3" strokeWidth="1" />

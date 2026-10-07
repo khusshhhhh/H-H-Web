@@ -34,6 +34,7 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
           key={project.slug}
           project={project}
           priority={index < 2}
+          index={index}
           className={SPAN_PATTERN[index % SPAN_PATTERN.length]}
         />
       ))}

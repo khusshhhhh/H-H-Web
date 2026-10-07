@@ -1,6 +1,6 @@
 import type { TeamMember } from "@/types/team-member";
 
-const photo = (src: string, alt: string) => ({ src, alt, width: 500, height: 600, isPlaceholder: true as const });
+const photo = (src: string, alt: string) => ({ src, alt, width: 800, height: 960, isPlaceholder: true as const });
 
 export const team: TeamMember[] = [
   {

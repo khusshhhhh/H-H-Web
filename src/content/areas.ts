@@ -10,7 +10,7 @@ export const serviceAreas: ServiceArea[] = [
       "Burnside", "Norwood", "Unley", "Glenelg", "Henley Beach", "Walkerville",
       "Prospect", "Malvern", "Toorak Gardens", "Kensington", "Parkside", "Rose Park",
     ],
-    image: { src: "/images/projects/osmond-terrace-rebuild/hero.jpg", alt: "Contemporary render and timber home on an established Adelaide metro street", width: 1400, height: 1000, isPlaceholder: true },
+    image: { src: "/images/areas/adelaide-metro.jpg", alt: "Tree-lined street in an established inner-Adelaide suburb", width: 1600, height: 1200, isPlaceholder: true },
   },
   {
     slug: "adelaide-hills",
@@ -18,7 +18,7 @@ export const serviceAreas: ServiceArea[] = [
     description:
       "Sloping sites, bushfire attack level ratings and a cooler microclimate call for a different design and construction response to the plains. We work closely with the land itself here — cut and fill, orientation and material specification all shift when a block has genuine fall.",
     suburbs: ["Mount Barker", "Stirling", "Aldgate", "Bridgewater", "Crafers", "Hahndorf", "Littlehampton"],
-    image: { src: "/images/projects/hahndorf-road-house-and-land/hero.jpg", alt: "Contemporary cantilevered home at dusk in the Adelaide Hills", width: 1400, height: 1000, isPlaceholder: true },
+    image: { src: "/images/areas/adelaide-hills.jpg", alt: "Gum trees beside a gravel track in the Adelaide Hills", width: 1600, height: 1200, isPlaceholder: true },
   },
   {
     slug: "fleurieu-coast",
@@ -26,7 +26,7 @@ export const serviceAreas: ServiceArea[] = [
     description:
       "Coastal exposure, salt air and increasingly, a genuine sea-change market of clients building a considered second home or forever home. Material durability and passive climate response are the priorities, without compromising the reason people choose to build here.",
     suburbs: ["Victor Harbor", "Goolwa", "McLaren Vale", "Port Elliot", "Normanville"],
-    image: { src: "/images/projects/dune-house-glenelg/hero.jpg", alt: "Modern coastal home with pool near the water", width: 1400, height: 1000, isPlaceholder: true },
+    image: { src: "/images/areas/fleurieu-coast.jpg", alt: "Rocky green headland above turquoise water on the Fleurieu Coast", width: 1600, height: 1200, isPlaceholder: true },
   },
   {
     slug: "barossa-valley",
@@ -34,6 +34,6 @@ export const serviceAreas: ServiceArea[] = [
     description:
       "Larger acreage allotments, rural living overlays and a strong local trade network built around the region's wine industry. Homes here are often designed around outlook and entertaining as much as day-to-day living.",
     suburbs: ["Tanunda", "Angaston", "Nuriootpa", "Lyndoch"],
-    image: { src: "/images/projects/walkerville-riverside-residences/hero.jpg", alt: "Modern residence with landscaped grounds", width: 1400, height: 1000, isPlaceholder: true },
+    image: { src: "/images/areas/barossa-valley.jpg", alt: "Vineyard rows beneath a clear sky in the Barossa Valley", width: 1600, height: 1200, isPlaceholder: true },
   },
 ];

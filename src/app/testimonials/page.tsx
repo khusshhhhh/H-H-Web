@@ -4,7 +4,7 @@ import { ArrowRight, Quote } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { testimonials } from "@/content/testimonials";
 import { getProjectBySlug } from "@/content/projects";
-import { PageHeroBanner } from "@/components/ui/PageHeroBanner";
+import { PageHeroBanner, bannerImages } from "@/components/ui/PageHeroBanner";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
@@ -22,6 +22,7 @@ export default function TestimonialsPage() {
   return (
     <>
       <PageHeroBanner
+        image={bannerImages.testimonials}
         eyebrow="Client Stories"
         title="Judged on what clients say after handover, not before"
         description="Placeholder testimonials illustrating the tone and detail we'll gather from real clients — final quotes will replace these before launch."

@@ -90,7 +90,13 @@ Images live under `public/images/`, organised by section:
 
 ```
 public/images/
-  home/hero.jpg                          Homepage hero + 3D fallback image
+  home/hero.jpg, hero-2.jpg, hero-3.jpg  Homepage hero slideshow (edit the SLIDES array in home-sections/Hero.tsx)
+  home/philosophy-1..4.jpg               One photograph per stage of the pinned philosophy section
+  home/signature.jpg                     "Explore the detail" image with numbered hotspots (positions in SignatureHouse.tsx)
+  home/closing.jpg                       Backdrop for the closing call to action
+  banners/<page>.jpg                     Full-bleed banner for each top-level page (mapped in ui/PageHeroBanner.tsx)
+  about/studio.jpg                       About page story image
+  areas/<slug>.jpg                       Region images (Areas page + homepage region strip)
   projects/<slug>/hero.jpg               Full-screen project intro
   projects/<slug>/card.jpg               Grid card image (portrait projects only — others reuse hero.jpg)
   projects/<slug>/gallery/01-04.jpg      Project gallery
@@ -99,8 +105,12 @@ public/images/
   services/<slug>.jpg                    Service card + detail hero
   team/01-05.jpg                         Team headshots
   journal/<slug>.jpg                     Article cover images
-  process/concept-design.jpg             Process step illustration
+  process/<step-slug>.jpg                One image per process step
 ```
+
+No photograph is shared between two different projects, services, articles, team members or pages — the only intentional reuse is a landscape project's card showing its own hero, and a service card showing that service's own hero. The Unsplash source of every current file is listed in `image-sources.md`.
+
+Next caches optimised images, so after swapping a file under the same name delete `.next/cache/images` and `.next/dev/cache/images` (or restart with a clean `.next`) to see the new one.
 
 To replace an image: drop a new file in the same location (same filename) **or** update the `src` path in the relevant `content/*.ts` entry, and update `width`/`height` to match the new file's aspect ratio (these are used to prevent layout shift — see `next/image` docs). Remove `isPlaceholder: true` once real photography is in place, or leave it as a permanent flag for future audits.
 

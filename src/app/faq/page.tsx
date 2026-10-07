@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { faqs, FAQ_CATEGORIES } from "@/content/faqs";
-import { PageHeroBanner } from "@/components/ui/PageHeroBanner";
+import { PageHeroBanner, bannerImages } from "@/components/ui/PageHeroBanner";
 import { Container } from "@/components/ui/Container";
 import { Label } from "@/components/ui/Label";
 import { Button } from "@/components/ui/Button";
@@ -32,12 +32,13 @@ export default function FaqPage() {
     <>
       <JsonLd data={faqJsonLd} />
       <PageHeroBanner
+        image={bannerImages.faq}
         eyebrow="FAQ"
         title="Questions we hear before every project starts"
         description="Straight answers to the things clients most want to know before committing to a builder — no marketing gloss."
       />
 
-      <section className="bg-cream pb-28 lg:pb-36" aria-label="Frequently asked questions">
+      <section className="bg-cream py-24 lg:py-32" aria-label="Frequently asked questions">
         <Container>
           <div className="mx-auto max-w-3xl">
             {FAQ_CATEGORIES.map((category, index) => {

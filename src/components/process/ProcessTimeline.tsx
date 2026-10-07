@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { processSteps } from "@/content/process-steps";
 import { useReducedMotionSafe } from "@/hooks/useReducedMotionSafe";
+import { MaskReveal } from "@/components/motion/MaskReveal";
 import { cn } from "@/lib/utils";
 
 interface ProcessTimelineProps {
@@ -48,8 +49,8 @@ export function ProcessTimeline({ variant = "full" }: ProcessTimelineProps) {
         />
       </div>
 
-      <ol className="flex flex-col gap-16">
-        {processSteps.map((step) => (
+      <ol className="flex flex-col gap-20 lg:gap-28">
+        {processSteps.map((step, index) => (
           <li key={step.slug} className="relative pl-12 sm:pl-16">
             <span
               className={cn(
@@ -59,7 +60,7 @@ export function ProcessTimeline({ variant = "full" }: ProcessTimelineProps) {
               {step.order}
             </span>
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-center lg:gap-10">
-              <div className="lg:col-span-7">
+              <div className={cn("lg:col-span-6", index % 2 === 1 && "lg:order-2 lg:col-start-7")}>
                 <h3 className="font-display text-fluid-xl text-charcoal">{step.title}</h3>
                 {step.durationEstimate && (
                   <p className="mt-1 text-fluid-xs uppercase tracking-widest2 text-charcoal/40">
@@ -71,9 +72,14 @@ export function ProcessTimeline({ variant = "full" }: ProcessTimelineProps) {
                 </p>
               </div>
               {step.image && (
-                <div className="relative aspect-[4/3] overflow-hidden rounded-sm lg:col-span-5">
+                <MaskReveal
+                  className={cn(
+                    "relative aspect-[4/3] overflow-hidden rounded-sm lg:col-span-5",
+                    index % 2 === 1 ? "lg:order-1 lg:col-start-1" : "lg:col-start-8",
+                  )}
+                >
                   <Image src={step.image.src} alt={step.image.alt} fill sizes="(min-width: 1024px) 35vw, 90vw" className="object-cover" />
-                </div>
+                </MaskReveal>
               )}
             </div>
           </li>
