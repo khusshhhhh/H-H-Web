@@ -62,10 +62,10 @@ export function ServicesExperience() {
                     <AnimatePresence initial={false}>
                       {isActive && (
                         <motion.div
-                          initial={reduced ? undefined : { height: 0, opacity: 0 }}
-                          animate={reduced ? undefined : { height: "auto", opacity: 1 }}
-                          exit={reduced ? undefined : { height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4, ease: [0.65, 0, 0.35, 1] }}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: reduced ? 0 : 0.4, ease: [0.65, 0, 0.35, 1] }}
                           className="overflow-hidden"
                         >
                           <ServiceDetail service={service} />
@@ -83,10 +83,10 @@ export function ServicesExperience() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active.slug}
-                  initial={reduced ? undefined : { opacity: 0, y: 16 }}
-                  animate={reduced ? undefined : { opacity: 1, y: 0 }}
-                  exit={reduced ? undefined : { opacity: 0, y: -16 }}
-                  transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: reduced ? 0 : 0.5, ease: [0.65, 0, 0.35, 1] }}
                 >
                   <ServiceDetail service={active} />
                 </motion.div>

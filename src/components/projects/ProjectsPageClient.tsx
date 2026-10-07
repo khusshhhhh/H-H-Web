@@ -22,7 +22,7 @@ export function ProjectsPageClient() {
         image={bannerImages.projects}
         eyebrow="Our Work"
         title="A record of homes built with intent"
-        description="Placeholder projects illustrating the range and standard of work we take on across Adelaide. Final photography and full case studies will replace this content before launch."
+        description="The range and standard of work we take on across Adelaide — from single custom homes to boutique developments."
       />
 
       <section className="bg-cream py-24 lg:py-32" aria-label="All projects">

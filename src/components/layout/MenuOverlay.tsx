@@ -103,9 +103,9 @@ export function MenuOverlay({ open, onClose, pathname }: MenuOverlayProps) {
                       <motion.li
                         key={item.href}
                         className="border-b border-cream/10"
-                        initial={reduced ? undefined : { opacity: 0, y: 24 }}
-                        animate={reduced ? undefined : { opacity: 1, y: 0 }}
-                        transition={{ delay: reduced ? 0 : 0.15 + index * 0.06, duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: reduced ? 0 : 0.15 + index * 0.06, duration: reduced ? 0 : 0.6, ease: [0.65, 0, 0.35, 1] }}
                         onMouseEnter={() => setHoverIndex(index % previewProjects.length)}
                       >
                         <Link

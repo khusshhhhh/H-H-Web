@@ -130,11 +130,11 @@ export function Hero() {
             household actually lives.
           </p>
 
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Button href="/projects" tone="dark" variant="primary" size="lg" magnetic>
+          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+            <Button href="/projects" tone="dark" variant="primary" size="lg" magnetic className="w-full justify-center sm:w-auto">
               Explore our homes
             </Button>
-            <Button href="/enquiry" tone="dark" variant="outline" size="lg" magnetic>
+            <Button href="/enquiry" tone="dark" variant="outline" size="lg" magnetic className="w-full justify-center sm:w-auto">
               Start your project
             </Button>
           </div>

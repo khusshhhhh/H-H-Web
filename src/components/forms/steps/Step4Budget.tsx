@@ -13,7 +13,7 @@ export function Step4Budget() {
     <div>
       <h2 className="font-display text-fluid-xl text-charcoal">What&rsquo;s your approximate budget?</h2>
       <p className="mt-2 text-fluid-sm text-charcoal/60">
-        Indicative ranges to help scope a conversation — editable placeholders, not a fixed quote.
+        Indicative ranges to help scope a conversation — not a fixed quote.
       </p>
 
       <div className="mt-8">

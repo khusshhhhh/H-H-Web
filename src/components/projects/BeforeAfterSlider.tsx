@@ -30,7 +30,7 @@ export function BeforeAfterSlider({ before, after }: BeforeAfterSliderProps) {
         <SectionHeading
           eyebrow="Before & After"
           title="Drag to compare"
-          description="Illustrative before/after imagery — representative placeholder, not the actual property."
+          description="See the transformation for yourself — drag the handle to move between before and after."
         />
 
         <div

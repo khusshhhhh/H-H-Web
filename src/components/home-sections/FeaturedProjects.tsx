@@ -28,7 +28,7 @@ export function FeaturedProjects() {
           <SectionHeading
             eyebrow="Selected Work"
             title="A sample of homes built with intent"
-            description="Placeholder projects illustrating the range of work we take on across Adelaide — final photography and case studies will replace these once live."
+            description="A sample of the custom homes, rebuilds and renovations we've delivered across Adelaide, from the foothills to the coast."
           />
           <AnimatedLink href="/projects" className="hidden shrink-0 items-center gap-2 text-fluid-sm text-charcoal lg:flex">
             View all projects <ArrowRight size={16} />

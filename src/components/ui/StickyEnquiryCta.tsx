@@ -13,6 +13,8 @@ export function StickyEnquiryCta() {
   const [visible, setVisible] = useState(false);
   const pathname = usePathname();
 
+  const hidden = HIDDEN_ON.includes(pathname);
+
   useEffect(() => {
     function handleScroll() {
       setVisible(window.scrollY > window.innerHeight * 0.6);
@@ -22,11 +24,9 @@ export function StickyEnquiryCta() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (HIDDEN_ON.includes(pathname)) return null;
-
   return (
     <AnimatePresence>
-      {visible && (
+      {visible && !hidden && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

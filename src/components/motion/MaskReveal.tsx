@@ -24,7 +24,7 @@ export function MaskReveal({ children, className, delay = 0, once = true, direct
   }
 
   return (
-    <div className={cn("overflow-hidden", className)}>
+    <div className={cn("relative overflow-hidden", className)}>
       <motion.div
         className="relative h-full w-full"
         initial={{ clipPath: hiddenClip, scale: 1.08 }}

@@ -54,10 +54,10 @@ export function Accordion({ items, className }: AccordionProps) {
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  initial={reduced ? undefined : { height: 0, opacity: 0 }}
-                  animate={reduced ? undefined : { height: "auto", opacity: 1 }}
-                  exit={reduced ? undefined : { height: 0, opacity: 0 }}
-                  transition={{ duration: 0.35, ease: [0.65, 0, 0.35, 1] }}
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: reduced ? 0 : 0.35, ease: [0.65, 0, 0.35, 1] }}
                   className="overflow-hidden"
                 >
                   <p className="max-w-2xl pb-6 text-fluid-base leading-relaxed text-charcoal/70">{item.answer}</p>
